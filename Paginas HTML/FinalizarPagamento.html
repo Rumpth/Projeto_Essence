@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/styleHome.css">
+    <link rel="stylesheet" href="../CSS/FinalizarPagamento.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../js/FinalizarPagamento.js"></script>
+    
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="menuPricipal">
+        <div class="header-1">
+            <div class="cabecalho">
+                <b class="texto">Smell your Dreams</b>
+            </div>
+            <div class="logo">
+                <a href="../index.html"><img
+                src="../img/logo.png" height="80px"/></a>
+            </div>
+            <div class="barradebusca">
+                <input type="text" id="txtoBusca" placeholder="   Buscar..." />
+                <img src="../img/lupa.png" id="iconBusca" height="20px" />
+            </div>
+            <div class="perCarAtend">
+                <ul class="ul">
+                    <li class="li" id="login"><a
+                            href="./Login.html">
+                            <b class="texto" id="txtLogin">Login</b></a></li>
+                    <li class="li"><a href="./Cadastro.html"><b
+                            class="texto">Cadastro</b></a></li>
+                    <li><a href="./Carrinho.html">
+                        <img id="iconeCar" src="../img/carrinho.png" height="45px" /></a></li>    
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Boleto -->
+    <div class="Boleto">
+
+        <h1 class="titulo"><b>Finalizar Pagamento</b></h1>
+
+        <hr>
+
+        <label for="Pagamento"></label>
+
+        <select name="Pagamento" id="Pagamento" onchange="ocultaresconde()">
+            <option value="formaPagamento" selected="true" disabled="disabled">Forma de Pagamento</option>
+            <option value="boleto">Boleto Bancario</option>
+            <option value="cartao">Cartao de Credito</option>
+        </select>
+
+        
+
+    </div>
+
+    <!-- Informacoes para o Boleto -->
+    <div class="infoBoleto">
+
+        <div class="Imagem">
+            <img src="../img/boleto.png" height="60px" width="100px">
+            <p>
+                O pedido sera confirmado somente apos a aprovacao do pagamento.
+            </p>
+        </div>
+
+        <h1 class="titulo"><b>Informe os seus dados pessoais</b></h1>
+
+        <form class="form" onsubmit="return false">
+            <div class="form__group">
+                <input id="Nome" type="text" placeholder="Nome Completo" name="Nome" class="form__input"><br>
+                <input id="CPF" type="text" placeholder="CPF" name="CPF" class="form__input"><br>
+                <input id="Celular" type="text" placeholder="Celular " name="Celular" class="form__input"><br>
+                
+                <a href="../index.html"><button class="btnGerBol" onclick="comprar()">Gerar Boleto</button></a>
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <!-- Cartao de Credito -->
+    <div class="Credito">
+
+        <form class="form" onsubmit="return false"><br>
+            
+            <!-- Mes -->
+            <div class="form__group">
+                <input id="Numero Cartao" type="text" placeholder="Numero Cartao" name="Numero Cartao" class="form__input"><br>
+                <input id="Nome" type="text" placeholder="Nome Completo" name="Nome" class="form__input"><br>
+                <div id="mes">
+                    <label for="mes">Mes:</label>
+                    <select>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>d
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- Ano -->
+            <div id="ano">
+                <label for="ano">Ano:</label>
+                <select>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                    <option>2029</option>
+                    <option>2030</option>
+                    <option>2031</option>
+                    <option>2032</option>
+                    <option>2033</option>
+                </select>
+            </div>
+
+            <input id="Codigo de Seguranca" type="text" placeholder="Codigo de Seguranca"
+                name="Codigo de Seguranca" class="form__input"><br>
+            <input id="Parcelamento" type="number" placeholder="Parcelas" name="Parcelas" class="form__input"><br>
+
+            <button type="submit" class="btnFechPed" onclick="comprar()">Fechar Pedido</button>
+
+        </form>
+    </div>
+
+    
+</body>
+
+</html>
