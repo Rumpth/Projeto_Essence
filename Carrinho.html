@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scence Carrinho</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../CSS/styleHome.css">
+    <link rel="stylesheet" href="../CSS/Carrinho.css">
+    <link rel="stylesheet" href="../CSS/produtos.css">
+
+</head>
+
+
+<body>
+    <!-- Header -->
+    <header class="menuPricipal">
+        <div class="header-1">
+            <div class="cabecalho">
+                <b class="texto">Smell your Dreams</b>
+            </div>
+            <div class="logo">
+                <a href="../index.html"><img src="../img/logo.png" height="80px" /></a>
+            </div>
+            <div class="barradebusca">
+                <input type="text" id="txtoBusca" placeholder="   Buscar..." />
+                <img src="../img/lupa.png" id="iconBusca" height="20px" />
+            </div>
+            <div class="perCarAtend">
+                <ul class="ul">
+                    <li class="li" id="login"><a href="./Login.html">
+                            <b class="texto" id="txtLogin">Login</b></a></li>
+                    <li class="li"><a href="./Cadastro.html"><b class="texto">Cadastro</b></a></li>
+                    <li><a href="./Carrinho.html">
+                            <img id="iconeCar" src="../img/carrinho.png" height="45px" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Carrinho -->
+
+    <h3 id="h3">Meu Carrinho</h3>
+
+    <div id="itens"></div>
+    <div id="itens">Total: R$ <span id="total"></span> </div>
+
+    <script>
+        var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+        var i = 0;     // variável que irá percorrer as posições
+        var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+
+        for (i = 1; i <= 99; i++) // verifica até 99 produtos registrados na localStorage
+        {
+            var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+            if (prod != null) {
+                // exibe os dados da lista dentro da div itens
+                document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+                document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+                document.getElementById("itens").innerHTML += " ";
+                document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+
+                // calcula o total dos recheios
+                valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+                total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+            }
+        }
+        // exibe o total dos recheios
+        document.getElementById("total").innerHTML = total.toFixed(2); 
+    </script>
+
+    <hr>
+
+    <button class="btnProduto" type="button" onclick=" localStorage.clear(); location.reload();"> Limpar carrinho
+    </button>
+
+    <a href="./FinalizarPagamento.html"><button class="btnProduto" type="button">Finalizar Pagamento</button></a>
+
+    <!-- Footer -->
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <a href="../index.html">
+                <img src="../img/logo.png" width="350px" height="220px"></a>
+
+            <p class="footer-company-name"></p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Rua Arlindo Scaramuzza 50</span> Curitiba, Parana</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+55 41 988239054</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">atendimentot@scence.com.br</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>Sobre nos </span>
+                Somos uma marca de perfumes de alta qualidade, que atua no mercado produzindo fragrâncias de linha
+                própria e
+                da linha inspiradas nas grandes marcas de fragrâncias do mundo todo, com o objetivo de entregar um
+                produto de qualidade.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/login?lang=pt"><i class="fa fa-twitter"></i></a>
+                <a href="https://br.pinterest.com/"><i class="fa fa-pinterest"></i></a>
+                <a href="https://www.instagram.com/?hl=pt-br"><i class="fa fa-instagram"></i></a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
